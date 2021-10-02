@@ -1,0 +1,13 @@
+package it.capgemini.academy.giorno2;
+
+public class Array {
+	public static void main(String[] args) {
+		int[] arrayInteri = new int[10];
+		// creaiamo un array di interi di lunghezza 10
+		// inizializzati al valore di default del datatype
+		
+		System.out.println(arrayInteri);
+	}
+	
+	
+}

@@ -1,0 +1,49 @@
+package it.capgemini.academy.giorno1;
+
+public class Stringhe {
+	public static void main (String[] args) {
+	
+		String stringa = new String(); 
+		/*
+		 * String, con chiamata ad un costruttore. Di default è una stringa vuota.
+		 */
+		
+		String stringaScolpita = "stringa";
+		
+		String stringaDefault;
+		// valore default null se non inizializzata
+		
+		String stringaNull = null;
+		
+		String stringsVuota = "";
+		//la stringa vuota è spesso chiamata blank
+		
+		String stringaDaIntero = String.valueOf(100); 
+		/* metodo statico poichè nomeClasse.nomeMetodo
+		 * valueOf() sono un insieme di metodi che costruiscono stringhe a partire 
+		 * dal valore che gli viene passato in ingresso ne esiste uno per ogni tipo primitivo
+		 */
+		//String intero = 100; ==> errore
+		
+		String stringaProva = " ciao Ciao";
+		System.out.println(stringaProva.toLowerCase());
+		// nomeIstanza.nomeMetodo() è una chiamata  a un metodo di istanza
+		System.out.println(stringaProva.toUpperCase());
+		System.out.println(stringaProva);
+		
+		System.out.println(stringaProva.endsWith("O"));
+		System.out.println(stringaProva.substring(2, 4).toUpperCase());
+		// restutuisce la sotto stringa tra gli indici
+		System.out.println(stringaProva.trim());
+		//elimina spazi a inizio e fine
+		System.out.println(stringaProva.charAt(3));
+		//restituisce il carattere corrispondente all'indice
+		
+		System.out.println(stringaProva.contains("Ciao"));
+		
+		System.out.println(stringaProva.indexOf("a"));
+		System.out.println(stringaProva.lastIndexOf("a"));
+
+		
+	}
+}

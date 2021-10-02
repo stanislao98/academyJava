@@ -1,0 +1,15 @@
+package it.capgemini.academy.giorno3;
+
+import java.util.Arrays;
+
+public class ManipolazioneArrayString {
+
+	public static void main(String[] args) {
+		
+		String stringa = "esercizi sulle stringhe";
+		String[] arrayStr = stringa.split(" ");
+		System.out.println(Arrays.toString(arrayStr));
+
+	}
+
+}

@@ -1,0 +1,23 @@
+package it.capgemini.academy.giorno1;
+
+public class Metodi {
+	
+	public static void main(String[] args) {
+		int n = 4;
+		int m = 8;
+		
+		double media = Metodi.media(n, m);
+		// metodo statico chiamato con la sintassi NomeClasse.nomeMetodo(parametri )
+		// qui il nome classe è opzionale perchè stiamo nella stessa classe
+		System.out.println("la media tra " + n + "e" + m + "è"  + media(n,m));
+	
+	}
+	
+	public static int media(int a, int b) {
+		// il nome del metodo più il numero e il datatype dei parametri costituiscono 
+		// la FIRMA del metodo
+		double res = (a+b)/2;
+		
+		return res;
+	}
+}

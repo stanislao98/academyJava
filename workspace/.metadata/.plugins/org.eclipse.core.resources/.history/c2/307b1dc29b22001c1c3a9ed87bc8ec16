@@ -1,0 +1,69 @@
+package it.capgemini.academy.giorno4.model;
+
+import it.capgemini.academy.giorno3.model.Persona;
+
+public class Moto extends Veicolo {
+	/*
+	 * MOTO
+	 * 
+	 * 	coeffMoto = 1.8
+	 * 
+	 * 
+	 * fields
+	 * -nCilindri : int
+	 * -numeroRuote : int
+	 * 
+	 * methods
+	 * +getters
+	 * +setters
+	 * +toString
+	 *
+	 * calcola bollo 10*nCilindri*coeffMoto*numeroRuote
+	 * 
+	 */
+	
+	private static final double COEFF = 1.8;
+	
+	private int nCilindri;
+	private int numeroRuote;
+	
+	
+	
+	
+	
+	public Moto(Persona proprietario, String targa, String marca, String modello, int prezzo, int nCilindri,int numeroRuote) {
+		super(proprietario, targa, marca, modello, prezzo);
+		this.nCilindri = nCilindri;
+		this.numeroRuote = numeroRuote;
+	}
+	
+	public static int getnCilindri() {
+		return nCilindri;
+	}
+	public static void setnCilindri(int nCilindri) {
+		nCilindri = nCilindri;
+	}
+	public static int getNumeroRuote() {
+		return numeroRuote;
+	}
+	public static void setNumeroRuote(int numeroRuote) {
+		numeroRuote = numeroRuote;
+	}
+	public static double getCoeff() {
+		return COEFF;
+	}
+	
+	@Override
+	public double getimportoBollo() {
+		return 10*nCilindri*COEFF*numeroRuote;
+		
+	};
+	@Override
+	public String getTipologia() {
+		return "Moto";
+	}
+	
+	
+	
+	
+}

@@ -1,0 +1,10 @@
+package it.capgemini.academy.giorno4.test;
+import it.capgemini.academy.giorno4.model.*;
+public class TestVeicolo {
+	public static void main(String[] args) {
+		
+		Veicolo v = new Veicolo();
+		
+		System.out.println(v);
+	}
+}

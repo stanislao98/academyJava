@@ -1,0 +1,9 @@
+package it.capgemini.academy.giorno1;
+
+public class Metodi {
+	public static int media(int a, int b) {
+		double res = a/b;
+		
+		return res;
+	}
+}

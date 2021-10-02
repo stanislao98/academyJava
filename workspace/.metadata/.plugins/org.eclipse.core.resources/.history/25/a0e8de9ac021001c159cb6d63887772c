@@ -1,0 +1,10 @@
+package it.capgemini.academy.giorno3;
+
+public class ManipolazioneArrayString {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,68 @@
+package it.capgemini.academy.giorno1;
+
+public class Variabili {	
+	private int variabileDiIstanza;
+	/*
+	 * variabile dichiarata nel corpo della classe
+	 * ma all'esterno dei metodi. 
+	 * fa riferimento all'istanza specifica
+	 * sono anche dette "campi della classe"
+	 * 
+	 * (se pubblica si può richiamare con "nomeIstanza.nomevariabile"
+	 */
+	public static int variabileDiClasse;
+	/*
+	 * sempre nel corpo della classe, all'esterno dei metodi
+	 * ma marcata dalla keyword "static"
+	 * fa riferimento alla classe
+	 * sono anche dette "variabili statiche"
+	 * (se pubblica si può richiamare con "NomeClasse.nomeVariabile"
+	 */
+	public static final int COSTANTE_INTERA = 7;
+	/*
+	 * COSTANTE. Il valore non può essere modificato
+	 * va inizializzata al momento della dichiarazione
+	 */
+	public static void main(String[] args) {
+		//variabileDiIstanza = 1; non ha senso perchè non c'è un'istanza attiva
+		variabileDiClasse = 1;
+		int variabileLocale;
+		/*
+		 * dichiarata all'interno dei metodi
+		 * il suo ciclo vitale dipende dal metodo in cui è definita
+		 */
+		variabileLocale=1;
+		System.out.println(COSTANTE_INTERA);
+		
+		int x = 2;
+		System.out.println("variabile locale = " + variabileLocale); //Concatenazione (la conversione di stringa è automatica)
+		
+		System.out.println(x + variabileLocale);
+		System.out.println("x + variabileLocale=" + x + variabileLocale);
+		
+		byte variabileByte = 1;
+		// valori interi tra -128 a 127 (8 bit)
+		short variabileShort = 3;
+		// valori tra -(2^15) e 2^(15-1) (16 bit)
+		 
+		int variabileInt = 5;
+		// 32bit cmpl2
+		long variabileLong = 2342545;
+		// 64 bit cmpl2
+		 
+		float variabileFloat = 1.1f;
+		// un numero in virgola mobile a 32 bit IEEE 754-1985 
+		 
+		double variabileDouble = 1.352345;
+		// numero in virgola mobile a 64 bit IEEE 754-1985
+		
+		boolean booleano = true;
+		boolean booleano2 = false;
+		/*
+		 * I valori di default sono 0 per i numerici e false per una variabile booleana
+		 */
+		char carattere = 'a'; //carattere a 16 bit nello standard Unicode. Il valore di default '\u000'
+		System.out.println("prima riga \nseconda riga\tciao");
+	}
+}
+

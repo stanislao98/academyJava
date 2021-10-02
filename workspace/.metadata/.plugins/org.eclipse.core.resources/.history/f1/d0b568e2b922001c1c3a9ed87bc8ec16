@@ -1,0 +1,7 @@
+package it.capgemini.academy.giorno4;
+
+public class EserciziEccezioni {
+	
+	//1 scrivere un metodo statico stringLength(String s) che restituisca la lunghezza di una 
+
+}

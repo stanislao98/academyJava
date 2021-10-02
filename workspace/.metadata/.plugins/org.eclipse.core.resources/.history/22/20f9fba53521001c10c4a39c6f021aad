@@ -1,0 +1,32 @@
+package it.capgemini.academy.giorno2;
+
+import java.util.Arrays;
+
+public class Array {
+	public static void main(String[] args) {
+		int[] arrayInteri = new int[10];
+		// creaiamo un array di interi di lunghezza 10
+		// inizializzati al valore di default del datatype
+	
+		
+		System.out.println(arrayInteri);
+		String stringaDaArray = Arrays.toString(arrayInteri);
+		//metodo statico della classe Arrays
+		System.out.println(stringaDaArray);
+		int[] arrayInteri2 = {4,54, 21, -8, 0, 12};
+		Arrays.sort(arrayInteri2);
+		//modifica l'array passatogli
+		//metodo statico della classe Arrays per ordinare
+		//quicksort a 2 pivot (nlogn)
+		
+		System.out.println(Arrays.toString(arrayInteri2));
+		System.out.println("lunghezza="+arrayInteri.length);
+		// length non è una chiamata ad un  metodo ma un attributo
+		
+		System.out.println(arrayInteri2[3]);
+		// chiamata dell'elemento per indice
+		System.out.println(arrayInteri2[-1]);
+	}	
+	
+	
+}

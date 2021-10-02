@@ -1,0 +1,43 @@
+package it.capgemini.academy.giorno4.test;
+
+public class Eccezioni {
+	public static void main(String[] args) {
+		//tutte le eccezioni sono nella gerarchia di Exception
+		
+		
+		try {
+			
+			//blocco try per contenere istruzioni a rischio
+			//int x = 23/0;
+			String stringa = null;
+			stringa.length();
+			//throw new IllegalArgumentException("male");
+			System.out.println("Istruzione non eseguita");
+			//un errore di runtime blocca il flusso del programma
+		} catch (ArithmeticException e) {
+			// blocco catch per catturare l'eccezione
+			System.out.println(e.getMessage());
+			System.out.println(e.getCause());
+			e.printStackTrace();
+			
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			System.out.println(e.getCause());
+			e.printStackTrace();
+		}
+		
+		finally {
+			
+			//esegue anche in caso di eccezione non catchata
+			
+			System.out.println("Istruzione eseguita");
+
+		}
+		
+		//quello che viene dopo esegue solo se l'eccezione è catturata
+		
+		System.out.println("istruzione eseguita");
+		
+	}
+
+}

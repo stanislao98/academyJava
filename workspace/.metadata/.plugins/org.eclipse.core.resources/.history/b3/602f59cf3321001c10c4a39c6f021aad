@@ -1,0 +1,17 @@
+package it.capgemini.academy.giorno2;
+
+import java.util.Arrays;
+
+public class Array {
+	public static void main(String[] args) {
+		int[] arrayInteri = new int[10];
+		// creaiamo un array di interi di lunghezza 10
+		// inizializzati al valore di default del datatype
+		// è un oggetto
+		
+		System.out.println(arrayInteri);
+		String stringaDaArray = Arrays.toString(arrayInteri);
+	}	
+	
+	
+}

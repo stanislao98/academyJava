@@ -1,0 +1,7 @@
+package it.capgemini.academy.giorno4.exception;
+
+public class TargaException extends Exception {
+	public TargaException () {
+		super("La targa inserita non è valida");
+	}
+}

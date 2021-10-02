@@ -1,0 +1,18 @@
+package it.capgemini.academy.giorno4.exception;
+
+public class TargaException extends Exception {
+
+	// 5 in una delle eccezioni custom create, scrivere più costruttori in
+	// overloading in modo da
+	// avere un messaggio di default quando si chiama il costruttore vuoto e un
+	// messaggio
+	// parametrico quando si chiama l'altro
+
+	public TargaException() {
+		super("La targa inserita non è valida");
+	}
+
+	public TargaException(String targa) {
+		System.out.println("La targa: " + targa + "non è valida");
+	}
+}

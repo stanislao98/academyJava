@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="org.omg.Messaging.SyncScopeHelper"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="org.omg.CORBA.PUBLIC_MEMBER"/>
+<fullyQualifiedTypeName name="javax.print.StreamPrintService"/>
+<fullyQualifiedTypeName name="java.lang.Math"/>
+<fullyQualifiedTypeName name="java.lang.Character"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="it.capgemini.academy.giorno3.model.Cerchio"/>
+<fullyQualifiedTypeName name="it.capgemini.academy.giorno1.EserciziStringheEIf"/>
+<fullyQualifiedTypeName name="it.capgemini.academy.giorno3.model.Studente"/>
+<fullyQualifiedTypeName name="it.capgemini.academy.giorno4.model.Veicolo"/>
+<fullyQualifiedTypeName name="it.capgemini.academy.giorno3.model.Persona"/>
+<fullyQualifiedTypeName name="javax.management.modelmbean.ModelMBeanAttributeInfo"/>
+<fullyQualifiedTypeName name="it.capgemini.academy.giorno4.model.Moto"/>
+<fullyQualifiedTypeName name="it.capgemini.academy.giorno4.model.EsempioInterfaccia"/>
+<fullyQualifiedTypeName name="java.lang.IllegalArgumentException"/>
+<fullyQualifiedTypeName name="java.lang.NullPointerException"/>
+<fullyQualifiedTypeName name="java.lang.ArithmeticException"/>
+<fullyQualifiedTypeName name="it.capgemini.academy.giorno4.test.TestEccezioneCustom"/>
+<fullyQualifiedTypeName name="java.util.Scanner"/>
+<fullyQualifiedTypeName name="it.capgemini.academy.giorno4.exception.NegativeIntegerException"/>
+<fullyQualifiedTypeName name="java.lang.Runtime"/>
+<fullyQualifiedTypeName name="java.lang.Exception"/>
+<fullyQualifiedTypeName name="it.capgemini.academy.giorno4.exception.EtaException"/>
+<fullyQualifiedTypeName name="it.capgemini.academy.giorno4.exception.CerchioException"/>
+<fullyQualifiedTypeName name="it.capgemini.academy.giorno4.EserciziEccezioni"/>
+<fullyQualifiedTypeName name="it.capgemini.academy.giorno4.exception.TargaException"/>
+</qualifiedTypeNameHistroy>

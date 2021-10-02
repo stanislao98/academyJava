@@ -1,0 +1,58 @@
+package it.capgemini.academy.giorno3.model;
+
+public class Cerchio {
+	//private double x,y;
+	public static final double PI = 3.14; 
+	private double raggio;
+	
+	private double x;
+
+	private double y;
+	// variabili di istanza o campi della classe
+	// l'insieme di questi si definisce stato della classe
+	public Cerchio(double raggio, double x, double y) {
+		this.raggio = raggio;
+		// this.keyword che simboleggia l'istanza a cui è riferito il metodo
+		
+		this.x = x;
+		this.y = y;
+		
+		//metodo di istanza (straamente) considerato cone riferito all'istanza stessa
+		
+		
+	}
+	
+	public double getRaggio() {
+		return raggio;
+	}
+	public double getX() {
+		return x;
+	}
+	public double getY() {
+		return y;
+	}
+	public void setRaggio(double raggio) {
+		this.raggio = raggio;
+	}
+	public void setX(double x) {
+		this.x = x;
+	}
+	public void setY(double y) {
+		this.y = y;
+	}
+	@Override
+	public String toString() {
+		return "Cerchio [raggio=" + raggio + ", x=" + x + ", y=" + y + "]";
+	}
+	
+	public double getArea() {
+		return PI*Math.pow(raggio,2);
+	}
+	
+	public double getCirconferenza() {
+		return 2*raggio*PI;
+	}
+	
+	//abbiamo sovrascritto o implementato in maniera polimorfica il metodo toString
+	
+}

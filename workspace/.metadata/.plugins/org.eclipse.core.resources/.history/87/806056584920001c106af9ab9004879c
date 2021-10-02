@@ -1,0 +1,28 @@
+package it.capgemini.academy.giorno1;
+
+public class EserciziMetodi {
+	public static final double PIGRECO = 3.14;
+	/*
+	 * scrivere un metodo che restituisca l'area di un triangolo 
+	 * di base b e altezza h (passati in ingresso)
+	 * 
+	 */
+	/*
+	 * Scrivere un metodo che stami a video la circonferenza di raggio r passato in ingresso
+	 */
+	
+	public static void main(String[] args) {
+		double altezza = 4;
+		double base = 4;
+		double raggio = 10; 
+		System.out.println("L'area del triangolo è " + area(base, altezza));
+		System.out.println("La circonferenza è " + circonferenza(raggio));
+	}
+	
+	public static double area (double b, double h) {
+		return (b*h)/2;
+	}
+	public static double circonferenza(double r) {
+		return (2*PIGRECO*r);
+	}
+}
