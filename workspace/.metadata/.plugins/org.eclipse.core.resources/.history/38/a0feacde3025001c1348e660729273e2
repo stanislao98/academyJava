@@ -45,27 +45,16 @@ public class Persona {
 	public Persona(String nome, String cognome, String eta, char genere, boolean sposato) {
 		this.nome = nome;
 		this.cognome = cognome;
-		String statoOld = this.stato.getStato().toString();
-
-		if ((this.getSposato()) && (sposato) && (Character.toLowerCase(this.getGenere()) == 'm')) {
-
+		
+		if (this.getSposato() && sposato && Character.toLowerCase(this.getGenere()) == 'm' ) {
 			this.stato = StatoCivile.DIVORZIATO;
-			System.out.println(statoOld);
-			System.out.println(this.stato);
-		} else if ((this.getSposato() && sposato && Character.toLowerCase(this.getGenere()) == 'f'))
-
+		} else if ((this.getSposato() && sposato && Character.toLowerCase(this.getGenere()) == 'f' ))
 			this.stato = StatoCivile.DIVORZIATA;
-
-		if (sposato && !(statoOld == "sposato" || statoOld == "sposata")
-				&& Character.toLowerCase(this.getGenere()) == 'm')
+		
+		if (sposato && !(this.getSposato()) && Character.toLowerCase(this.getGenere()) == 'm') 
 			this.stato = StatoCivile.SPOSATO;
-		else if (sposato && !(statoOld == "sposata" || statoOld == "sposato")
-				&& Character.toLowerCase(this.getGenere()) == 'f')
-			this.stato = StatoCivile.SPOSATA;
-
-	
-
-	
+		 else if (sposato && !(this.getSposato()) && Character.toLowerCase(this.getGenere()) == 'm')
+				this.stato = StatoCivile.SPOSATA;
 	
 
 		try {
@@ -158,24 +147,23 @@ public class Persona {
 
 	public void setSposato(boolean sposato) {
 		String statoOld = this.stato.getStato().toString();
-
-		if ((this.getSposato()) && (sposato) && (Character.toLowerCase(this.getGenere()) == 'm')) {
-
+		
+		if ((this.getSposato()) && (sposato) && (Character.toLowerCase(this.getGenere()) == 'm') ) {
+			
 			this.stato = StatoCivile.DIVORZIATO;
 			System.out.println(statoOld);
 			System.out.println(this.stato);
-		} else if ((this.getSposato() && sposato && Character.toLowerCase(this.getGenere()) == 'f'))
-
+		} else if ((this.getSposato() && sposato && Character.toLowerCase(this.getGenere()) == 'f' ))
+			
 			this.stato = StatoCivile.DIVORZIATA;
-
-		if (sposato && !(statoOld == "sposato" || statoOld == "sposata")
-				&& Character.toLowerCase(this.getGenere()) == 'm')
+		
+		if (sposato && !(statoOld == "sposato" || statoOld == "sposata") && Character.toLowerCase(this.getGenere()) == 'm') 
 			this.stato = StatoCivile.SPOSATO;
-		else if (sposato && !(statoOld == "sposata" || statoOld == "sposato")
-				&& Character.toLowerCase(this.getGenere()) == 'f')
-			this.stato = StatoCivile.SPOSATA;
-
-	}
+		 else if (sposato && !(statoOld == "sposata" || statoOld =="sposato") && Character.toLowerCase(this.getGenere()) == 'f')
+				this.stato = StatoCivile.SPOSATA;
+			
+			
+		}
 
 		
 

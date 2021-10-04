@@ -1,5 +1,0 @@
-package it.capgemini.academy.giorno1;
-
-public class Variabili {	
-	public int variabileDiIstanza;
-}

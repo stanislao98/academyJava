@@ -45,6 +45,7 @@ public class Persona {
 	public Persona(String nome, String cognome, String eta, char genere, boolean sposato) {
 		this.nome = nome;
 		this.cognome = cognome;
+		
 		String statoOld = this.stato.getStato().toString();
 
 		if ((this.getSposato()) && (sposato) && (Character.toLowerCase(this.getGenere()) == 'm')) {
@@ -63,7 +64,7 @@ public class Persona {
 				&& Character.toLowerCase(this.getGenere()) == 'f')
 			this.stato = StatoCivile.SPOSATA;
 
-	
+	}
 
 	
 	
