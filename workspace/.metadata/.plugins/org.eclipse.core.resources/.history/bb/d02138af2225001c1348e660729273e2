@@ -1,0 +1,7 @@
+package it.capgemini.academy.giorno6.eserciziocarta.exception;
+
+public class prelievoMassimoException extends Exception {
+	public prelievoMassimo() {
+		super("Prelievo massimo superato!");
+	}
+}

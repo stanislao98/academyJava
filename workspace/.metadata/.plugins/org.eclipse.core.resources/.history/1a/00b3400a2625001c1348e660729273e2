@@ -1,0 +1,79 @@
+package it.capgemini.academy.giorno6.eserciziocarta;
+
+import java.util.Date;
+
+import it.capgemini.academy.giorno6.esercizioenum.Persona;
+
+public class CartaGold implements CartaPrepagata {
+	private String numCarta;
+	private Persona intestatario;
+	private double saldo;
+	private int punti;
+	private Date ultimoMovimento;
+
+	
+	
+	public CartaGold(String numCarta, Persona intestatario, double saldo, int punti, Date ultimoMovimento) {
+		super();
+		this.numCarta = numCarta;
+		this.intestatario = intestatario;
+		this.saldo = saldo;
+		this.punti = punti;
+		this.ultimoMovimento = ultimoMovimento;
+	}
+
+	public void ricarica(double quantita) {
+
+	}
+
+	public void prelievo() {
+
+	}
+
+	public void pagamento() {
+
+	}
+
+	public String getNumCarta() {
+		return numCarta;
+	}
+
+	public Persona getIntestatario() {
+		return intestatario;
+	}
+
+	public double getSaldo() {
+		return saldo;
+	}
+
+	public int getPunti() {
+		return punti;
+	}
+
+	public Date getUltimoMovimento() {
+		return ultimoMovimento;
+	}
+
+	public void setNumCarta(String numCarta) {
+		this.numCarta = numCarta;
+	}
+
+	public void setIntestatario(Persona intestatario) {
+		this.intestatario = intestatario;
+	}
+
+	public void setSaldo(double saldo) {
+		this.saldo = saldo;
+	}
+
+	public void setPunti(int punti) {
+		this.punti = punti;
+	}
+
+	public void setUltimoMovimento(Date ultimoMovimento) {
+		this.ultimoMovimento = ultimoMovimento;
+	}
+	
+	
+	
+}

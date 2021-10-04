@@ -118,6 +118,7 @@ public class InputOutput {
 	}
 	
 	private static void letturaFilePerRiga(File file) {
+		//Con questa sintassi le risorse vengono aperte e chiuse automaticamente
 		try(FileReader reader = new FileReader(file);
 			BufferedReader buffReader = new BufferedReader(reader)) {
 			String riga = null;
@@ -136,5 +137,4 @@ public class InputOutput {
 	
 
 	}
-
 }
