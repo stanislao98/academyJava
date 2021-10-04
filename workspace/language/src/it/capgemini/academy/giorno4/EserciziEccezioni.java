@@ -60,8 +60,9 @@ public class EserciziEccezioni {
 			throw new EtaException();
 
 	}
+
 	public static void validaRaggio(double raggio) throws CerchioException {
-		if(raggio <=0) 
+		if (raggio <= 0)
 			throw new CerchioException();
 	}
 }
