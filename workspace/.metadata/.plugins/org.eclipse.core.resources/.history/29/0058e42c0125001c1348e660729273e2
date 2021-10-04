@@ -122,12 +122,11 @@ public class InputOutput {
 			BufferedReader buffReader = new BufferedReader(reader)) {
 			String riga = null;
 			
-			do {
+			while((buffReader.readLine())!= null) {
 				riga = buffReader.readLine();
 				System.out.println(riga);
-
-			} while (riga != null);
-			while(riga != null);
+			}
+			
 		} catch (FileNotFoundException e) {
 			// TODO: handle exception
 		} catch (IOException e) {

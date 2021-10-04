@@ -18,12 +18,11 @@ public class InputOutput {
 	public static void main(String[] args) {
 		File file = new File(PATH);
 
-//		creaFile(file);
-//		analisiFile(file);
-		//scritturaFile(file);
-//		analisiFile(file);
-		//System.out.println(letturaFile(file));
-		letturaFilePerRiga(file);
+		creaFile(file);
+		analisiFile(file);
+		scritturaFile(file);
+		analisiFile(file);
+		letturaFile(file);
 	}
 
 	private static void creaFile(File file) {
@@ -86,7 +85,7 @@ public class InputOutput {
 
 	}
 
-	private static String letturaFile(File file) {
+	private static void letturaFile(File file) {
 		FileReader reader = null;
 		BufferedReader buffReader = null;
 		char[] arr = new char[100];
@@ -113,27 +112,6 @@ public class InputOutput {
 		}
 		
 		res = new String(arr);
-		return res;
-
-	}
-	
-	private static void letturaFilePerRiga(File file) {
-		try(FileReader reader = new FileReader(file);
-			BufferedReader buffReader = new BufferedReader(reader)) {
-			String riga = null;
-			
-			do {
-				riga = buffReader.readLine();
-				System.out.println(riga);
-
-			} while (riga != null);
-			while(riga != null);
-		} catch (FileNotFoundException e) {
-			// TODO: handle exception
-		} catch (IOException e) {
-			// TODO: handle exception
-		}
-	
 
 	}
 

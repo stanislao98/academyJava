@@ -20,10 +20,10 @@ public class InputOutput {
 
 //		creaFile(file);
 //		analisiFile(file);
-		//scritturaFile(file);
+		scritturaFile(file);
 //		analisiFile(file);
 		//System.out.println(letturaFile(file));
-		letturaFilePerRiga(file);
+		System.out.println(letturaFilePerRiga(file););
 	}
 
 	private static void creaFile(File file) {
@@ -122,19 +122,15 @@ public class InputOutput {
 			BufferedReader buffReader = new BufferedReader(reader)) {
 			String riga = null;
 			
-			do {
-				riga = buffReader.readLine();
+			while((buffReader.readLine())!= null) {
 				System.out.println(riga);
-
-			} while (riga != null);
-			while(riga != null);
+			}
+			
 		} catch (FileNotFoundException e) {
 			// TODO: handle exception
 		} catch (IOException e) {
 			// TODO: handle exception
 		}
-	
-
 	}
 
 }
