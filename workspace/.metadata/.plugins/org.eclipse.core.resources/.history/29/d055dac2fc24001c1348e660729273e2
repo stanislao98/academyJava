@@ -61,18 +61,14 @@ public class InputOutput {
 			buffWriter = new BufferedWriter(writer);
 			System.out.println("inserisci una stringa" );
 			String s = scanner.nextLine();
-			buffWriter.write("\n" + s);
-			buffWriter.write("buff");
+			buffWriter.write(s);
 			System.out.println("file scritto");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			try {
-				if(buffWriter !=null)
-					buffWriter.close();
-				if(writer != null)
-					writer.close();
+				buffWriter.close();
 			} catch (IOException e) {
 				// TODO: handle exception
 				e.printStackTrace();

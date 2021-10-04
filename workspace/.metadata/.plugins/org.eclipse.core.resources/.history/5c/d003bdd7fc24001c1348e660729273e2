@@ -61,8 +61,7 @@ public class InputOutput {
 			buffWriter = new BufferedWriter(writer);
 			System.out.println("inserisci una stringa" );
 			String s = scanner.nextLine();
-			buffWriter.write("\n" + s);
-			buffWriter.write("buff");
+			buffWriter.write(s);
 			System.out.println("file scritto");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

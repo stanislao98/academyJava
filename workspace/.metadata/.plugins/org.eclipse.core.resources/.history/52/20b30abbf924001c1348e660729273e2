@@ -20,7 +20,7 @@ public class Persona {
 	private String eta;
 	private char genere;
 	private String statoCivile;
-	private boolean sposato;
+	//private boolean sposato;
 	
 	public class StatoCivile {
 		//classe interna, classe dichiarata nel corpo di un'altra classe

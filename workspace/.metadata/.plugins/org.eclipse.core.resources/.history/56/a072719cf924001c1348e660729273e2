@@ -1,4 +1,4 @@
-package it.capgemini.academy.giorno6.classiinterne;
+package it.capgemini.academy.giorno3.model;
 
 import it.capgemini.academy.giorno1.EserciziStringheEIf;
 import it.capgemini.academy.giorno4.exception.EtaException;
@@ -19,21 +19,7 @@ public class Persona {
 	private String cognome;
 	private String eta;
 	private char genere;
-	private String statoCivile;
 	private boolean sposato;
-	
-	public class StatoCivile {
-		//classe interna, classe dichiarata nel corpo di un'altra classe
-		// bisognerebbe poi controllare manualmente che i valori inseriti siano tra questi
-		
-		public static final String NUBILE ="nubile" ;
-		public static final String CELIBE = "celibe" ;
-		public static final String SPOSATA = "sposata" ;
-		public static final String SPOSATO = "sposato" ;
-		public static final String VEDOVO = "vedovo" ;
-		public static final String VEDOVA = "vedova" ;
-		
-	}
 
 	public Persona(String nome, String cognome, String eta,char genere, boolean sposato) {
 		this.nome = nome;
@@ -121,9 +107,7 @@ public class Persona {
 	public void setSposato(boolean sposato) {
 		this.sposato = sposato;
 	}
-	
 
-	
 	@Override
 	public String toString() {
 		return "Persona [nome=" + nome + ", cognome=" + cognome + ", eta=" + eta + ", genere=" + genere + ", sposato="

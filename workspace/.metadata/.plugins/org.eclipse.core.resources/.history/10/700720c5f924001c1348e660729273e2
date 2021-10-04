@@ -20,20 +20,20 @@ public class Persona {
 	private String eta;
 	private char genere;
 	private String statoCivile;
-	private boolean sposato;
+	//private boolean sposato;
 	
-	public class StatoCivile {
-		//classe interna, classe dichiarata nel corpo di un'altra classe
-		// bisognerebbe poi controllare manualmente che i valori inseriti siano tra questi
-		
-		public static final String NUBILE ="nubile" ;
-		public static final String CELIBE = "celibe" ;
-		public static final String SPOSATA = "sposata" ;
-		public static final String SPOSATO = "sposato" ;
-		public static final String VEDOVO = "vedovo" ;
-		public static final String VEDOVA = "vedova" ;
-		
-	}
+//	public class StatoCivile {
+//		//classe interna, classe dichiarata nel corpo di un'altra classe
+//		// bisognerebbe poi controllare manualmente che i valori inseriti siano tra questi
+//		
+//		public static final String NUBILE ="nubile" ;
+//		public static final String CELIBE = "celibe" ;
+//		public static final String SPOSATA = "sposata" ;
+//		public static final String SPOSATO = "sposato" ;
+//		public static final String VEDOVO = "vedovo" ;
+//		public static final String VEDOVA = "vedova" ;
+//		
+//	}
 
 	public Persona(String nome, String cognome, String eta,char genere, boolean sposato) {
 		this.nome = nome;
