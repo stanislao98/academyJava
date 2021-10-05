@@ -13,11 +13,23 @@
 //	}
 package it.capgemini.academy.giorno6.eserciziocarta;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
+import it.capgemini.academy.giorno6.eserciziocarta.Movimento.TipoMovimento;
+import it.capgemini.academy.giorno6.eserciziocarta.comparatori.ComparatorImporto;
 import it.capgemini.academy.giorno6.eserciziocarta.exception.pagamentoMassimoException;
 import it.capgemini.academy.giorno6.eserciziocarta.exception.prelievoMassimoException;
 import it.capgemini.academy.giorno6.esercizioenum.Persona;
+import it.capgemini.academy.giorno6.io.InputOutput;
 
 public class Carta implements CartaPrepagata {
 	/*
@@ -48,6 +60,28 @@ public class Carta implements CartaPrepagata {
 	private Date ultimoMovimento;
 	private static final int COMMISSIONERICARICA = 2;
 	private static final int COMMISSIONEPRELIEVO = 2;
+	private ArrayList<Movimento> listaMovimenti = new ArrayList<>();
+	private Logger logger;
+	
+	
+	public void setLogging() {
+		Logger logger = Logger.getLogger("logMovimento");
+		logger.setLevel(Level.ALL);
+
+		FileHandler fileHandler = null;
+
+		try {
+			fileHandler = new FileHandler("movimento.xml");
+		} catch (SecurityException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		logger.addHandler(fileHandler);
+		this.logger = logger;
+	}
+
+	
+	
 
 	public Carta(String numCarta, Persona intestatario, double saldo, Date ultimoMovimento) {
 		super();
@@ -55,11 +89,61 @@ public class Carta implements CartaPrepagata {
 		this.intestatario = intestatario;
 		this.saldo = saldo;
 		this.ultimoMovimento = ultimoMovimento;
+		setLogging();
 	}
 
+	
+	public void logging(Movimento movimento) {
+		
+		logger.info(movimento.toString());
+	}
+	
+	public void stampaMovimenti () {
+		for (Movimento m : listaMovimenti) {
+			System.out.println(m);
+		}
+	}
+	
+	public void downloadMovimenti () {
+		String PATH = "C:\\Users\\stani\\OneDrive\\Desktop\\academyJava\\workspace\\language\\src\\it\\capgemini\\academy\\movimento.txt";
+		File file = new File(PATH);
+		InputOutput.creaFile(file);
+		
+		FileWriter writer = null;
+		BufferedWriter buffWriter = null;
+		
+		try {
+			writer = new FileWriter(file, true);
+			buffWriter = new BufferedWriter(writer);
+			for(Movimento m : listaMovimenti)
+				buffWriter.write("\n" + m.toString());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				if (buffWriter != null)
+					buffWriter.close();
+				if (writer != null)
+					writer.close();
+			} catch (IOException e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
+	}
+	public void ordinaPerImporto() {
+		ComparatorImporto compImporto = new ComparatorImporto();
+		this.listaMovimenti.sort(compImporto);
+		
+	}
 	public void ricarica(double quantita) {
 		this.saldo += quantita - COMMISSIONERICARICA;
 		this.ultimoMovimento = new Date(System.currentTimeMillis());
+		Movimento movimento = new Movimento(TipoMovimento.RICARICA, quantita, this.ultimoMovimento);
+		logging(movimento);
+		listaMovimenti.add(movimento);
+
 
 	}
 
@@ -71,6 +155,11 @@ public class Carta implements CartaPrepagata {
 			throw new prelievoMassimoException();
 		this.saldo -= (quantita + COMMISSIONEPRELIEVO);
 		this.ultimoMovimento = new Date(System.currentTimeMillis());
+		Movimento movimento = new Movimento(TipoMovimento.PRELIEVO, quantita, this.ultimoMovimento);
+		logging(movimento);
+		listaMovimenti.add(movimento);
+
+
 	}
 
 	public void pagamento(double quantita) throws pagamentoMassimoException {
@@ -79,6 +168,9 @@ public class Carta implements CartaPrepagata {
 			throw new pagamentoMassimoException();
 		this.saldo -= quantita;
 		this.ultimoMovimento = new Date(System.currentTimeMillis());
+		Movimento movimento = new Movimento(TipoMovimento.PAGAMENTO, quantita, this.ultimoMovimento);
+		logging(movimento);
+		listaMovimenti.add(movimento);
 
 	}
 

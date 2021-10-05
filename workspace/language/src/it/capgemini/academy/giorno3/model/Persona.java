@@ -17,11 +17,11 @@ public class Persona {
 	 */
 	private String nome;
 	private String cognome;
-	private String eta;
+	private int eta;
 	private char genere;
 	private boolean sposato;
 
-	public Persona(String nome, String cognome, String eta,char genere, boolean sposato) {
+	public Persona(String nome, String cognome, int eta,char genere, boolean sposato) {
 		this.nome = nome;
 		this.cognome = cognome;
 		
@@ -32,7 +32,7 @@ public class Persona {
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
-			this.eta = "Età non valida";
+			this.eta = 0;
 		}
 		this.genere=genere;
 		this.sposato=sposato;
@@ -68,7 +68,7 @@ public class Persona {
 		return cognome;
 	}
 
-	public String getEta() {
+	public int getEta() {
 		return eta;
 	}
 	
@@ -89,10 +89,10 @@ public class Persona {
 		this.cognome = cognome;
 	}
 
-	public void setEta(String eta) {
+	public void setEta(int eta) {
 		try {
 			EserciziEccezioni.validaEta(eta);
-			this.eta = eta;
+			this.eta = 0;
 
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -118,40 +118,40 @@ public class Persona {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((cognome == null) ? 0 : cognome.hashCode());
-		result = prime * result + ((eta == null) ? 0 : eta.hashCode());
+		//result = prime * result + ((eta == null) ? 0 : eta.hashCode());
 		result = prime * result + genere;
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		return result;
 	}
 	
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Persona other = (Persona) obj;
-		if (cognome == null) {
-			if (other.cognome != null)
-				return false;
-		} else if (!cognome.equals(other.cognome))
-			return false;
-		if (eta == null) {
-			if (other.eta != null)
-				return false;
-		} else if (!eta.equals(other.eta))
-			return false;
-		if (genere != other.genere)
-			return false;
-		if (nome == null) {
-			if (other.nome != null)
-				return false;
-		} else if (!nome.equals(other.nome))
-			return false;
-		return true;
-	}
+//	@Override
+//	public boolean equals(Object obj) {
+//		if (this == obj)
+//			return true;
+//		if (obj == null)
+//			return false;
+//		if (getClass() != obj.getClass())
+//			return false;
+//		Persona other = (Persona) obj;
+//		if (cognome == null) {
+//			if (other.cognome != null)
+//				return false;
+//		} else if (!cognome.equals(other.cognome))
+//			return false;
+//		if (eta == null) {
+//			if (other.eta != null)
+//				return false;
+//		} else if (!eta.equals(other.eta))
+//			return false;
+//		if (genere != other.genere)
+//			return false;
+//		if (nome == null) {
+//			if (other.nome != null)
+//				return false;
+//		} else if (!nome.equals(other.nome))
+//			return false;
+//		return true;
+//	}
 	
 	
 }

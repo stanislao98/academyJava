@@ -55,8 +55,8 @@ public class EserciziEccezioni {
 
 	}
 
-	public static void validaEta(String eta) throws EtaException {
-		if (Integer.parseInt(eta) < 0)
+	public static void validaEta(int eta) throws EtaException {
+		if (eta < 0)
 			throw new EtaException();
 
 	}

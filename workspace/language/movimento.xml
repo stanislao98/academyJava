@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-10-05T17:54:03</date>
+  <millis>1633449243592</millis>
+  <sequence>0</sequence>
+  <logger>logMovimento</logger>
+  <level>INFO</level>
+  <class>it.capgemini.academy.giorno6.eserciziocarta.Carta</class>
+  <method>logging</method>
+  <thread>1</thread>
+  <message>Movimento [tipo=PAGAMENTO, importo=234.0, data=Tue Oct 05 17:54:03 CEST 2021]</message>
+</record>
+<record>
+  <date>2021-10-05T17:54:03</date>
+  <millis>1633449243603</millis>
+  <sequence>1</sequence>
+  <logger>logMovimento</logger>
+  <level>INFO</level>
+  <class>it.capgemini.academy.giorno6.eserciziocarta.Carta</class>
+  <method>logging</method>
+  <thread>1</thread>
+  <message>Movimento [tipo=PRELIEVO, importo=234.0, data=Tue Oct 05 17:54:03 CEST 2021]</message>
+</record>
+</log>

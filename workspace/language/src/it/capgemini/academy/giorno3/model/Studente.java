@@ -5,7 +5,7 @@ public class Studente extends Persona {
 	
 	private String matricola;
 	private String codiceCorso;
-	public Studente(String nome, String cognome, String eta, char genere, boolean sposato, String matricola, String codiceCorso) {
+	public Studente(String nome, String cognome, int eta, char genere, boolean sposato, String matricola, String codiceCorso) {
 		super(nome, cognome, eta, genere, sposato); //chiama il costruttore della superclasse
 		this.matricola = matricola;
 		this.codiceCorso = codiceCorso;

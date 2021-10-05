@@ -29,7 +29,7 @@ public class Test {
 		 * 		
 		 */
 		
-		Persona p = new Persona("mario", "rossi", "22", 'f', StatoCivile.CELIBE);
+		Persona p = new Persona("mario", "rossi", 22, 'f', StatoCivile.CELIBE);
 		System.out.println(p.getSposato());
 		p.setSposato(true);
 		p.setSposato(true);

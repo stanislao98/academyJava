@@ -1,7 +1,10 @@
 package it.capgemini.academy.giorno6.eserciziocarta;
 
+import java.awt.Image;
 import java.util.Date;
+import java.util.Scanner;
 
+import it.capgemini.academy.giorno6.eserciziocarta.Movimento.TipoMovimento;
 import it.capgemini.academy.giorno6.eserciziocarta.exception.pagamentoMassimoException;
 import it.capgemini.academy.giorno6.eserciziocarta.exception.prelievoMassimoException;
 import it.capgemini.academy.giorno6.esercizioenum.Persona;
@@ -40,24 +43,55 @@ public class Test {
 		Persona p = new Persona("Mario", "Rossi");
 		Date d = new Date(2021, 10, 25, 20, 15);
 		
-		Carta carta = new Carta("1234", p, 516.4, d);
-		try {
-			carta.prelievo(500);
-		} catch (prelievoMassimoException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		try {
-			carta.pagamento(40);
-		} catch (pagamentoMassimoException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		System.out.println(carta.getSaldo());
-		System.out.println(carta.getUltimoMovimento());
-		CartaGold cartaGold = new CartaGold("1234", p, 900, 2, d);
+		Carta carta = new Carta("1234", p, 1516.4, d);
+	
+		//System.out.println(carta.getSaldo());
+		//System.out.println(carta.getUltimoMovimento());
+		CartaGold cartaGold = new CartaGold("1234", p, 1900, 2, d);
 		//System.out.println(d);
 		//System.out.println(CartaGold.pre);
+		//carta.stampaMovimenti();
+		//carta.downloadMovimenti();
+		
+		Scanner scanner = new Scanner(System.in);
+
+		int scelta = 100;
+	
+		while(scelta !=0) {
+			System.out.println("-----SCEGLIERE IL TIPO DI MOVIMENTO-----");
+			System.out.println("1. Ricarica\n2. Pagamento\n3. Prelievo\n0. Per uscire");
+			scelta = scanner.nextInt();
+			if(scelta==0)
+				break;
+			System.out.println("Inserire importo");
+
+			double importo = scanner.nextDouble();
+			switch (scelta) {
+				
+			case 1:
+				carta.ricarica(importo);
+				System.out.println(carta.getSaldo());
+				break;
+			case 2:
+				try {
+					carta.pagamento(importo);
+				} catch (pagamentoMassimoException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			case 3:
+				try {
+					carta.prelievo(importo);
+				} catch (prelievoMassimoException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+		
+		//carta.ordinaPerImporto();
+		//carta.stampaMovimenti();
+
+		
 	}
 }
-

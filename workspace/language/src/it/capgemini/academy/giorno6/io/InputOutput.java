@@ -26,7 +26,7 @@ public class InputOutput {
 		letturaFilePerRiga(file);
 	}
 
-	private static void creaFile(File file) {
+	public static void creaFile(File file) {
 
 		boolean controlloCreazione = false;
 
