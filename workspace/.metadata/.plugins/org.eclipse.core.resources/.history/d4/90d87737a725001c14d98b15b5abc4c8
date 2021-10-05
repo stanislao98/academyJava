@@ -63,22 +63,33 @@ public class Carta implements CartaPrepagata {
 
 	}
 
-	public void prelievo(double quantita) throws prelievoMassimoException {
 
-		if (quantita > 1000)
-			throw new prelievoMassimoException();
-		if (this.saldo - quantita - COMMISSIONEPRELIEVO < 0)
-			throw new prelievoMassimoException();
-		this.saldo -= (quantita + COMMISSIONEPRELIEVO);
-		this.ultimoMovimento = new Date(System.currentTimeMillis());
+	public void prelievo(double quantita) {
+
+		try {
+			if (quantita > 1000)
+				throw new prelievoMassimoException();
+			if (this.saldo - quantita - COMMISSIONEPRELIEVO < 0)
+				throw new prelievoMassimoException();
+			this.saldo -= (quantita + COMMISSIONEPRELIEVO);
+			this.ultimoMovimento = new Date(System.currentTimeMillis());
+		} catch (prelievoMassimoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 	}
 
-	public void pagamento(double quantita) throws pagamentoMassimoException {
-
-		if (this.saldo - quantita < 0)
-			throw new pagamentoMassimoException();
-		this.saldo -= quantita;
-		this.ultimoMovimento = new Date(System.currentTimeMillis());
+	public void pagamento(double quantita) {
+		try {
+			if (this.saldo - quantita < 0)
+				throw new pagamentoMassimoException();
+			this.saldo -= quantita;
+			this.ultimoMovimento = new Date(System.currentTimeMillis());
+		} catch (pagamentoMassimoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 

@@ -2,7 +2,6 @@ package it.capgemini.academy.giorno6.eserciziocarta;
 
 import java.util.Date;
 
-import it.capgemini.academy.giorno6.eserciziocarta.exception.pagamentoMassimoException;
 import it.capgemini.academy.giorno6.eserciziocarta.exception.prelievoMassimoException;
 import it.capgemini.academy.giorno6.esercizioenum.Persona;
 
@@ -38,8 +37,7 @@ public class Test {
 		
 		//i try si potevano inserire qui
 		Persona p = new Persona("Mario", "Rossi");
-		Date d = new Date(2021, 10, 25, 20, 15);
-		
+		Date d = new Date(System.currentTimeMillis());
 		Carta carta = new Carta("1234", p, 516.4, d);
 		try {
 			carta.prelievo(500);
@@ -47,16 +45,10 @@ public class Test {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		try {
-			carta.pagamento(40);
-		} catch (pagamentoMassimoException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		//carta.pagamento(40);
 		System.out.println(carta.getSaldo());
-		System.out.println(carta.getUltimoMovimento());
 		CartaGold cartaGold = new CartaGold("1234", p, 900, 2, d);
-		//System.out.println(d);
+		
 		//System.out.println(CartaGold.pre);
 	}
 }

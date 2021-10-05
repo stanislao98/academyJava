@@ -21,6 +21,7 @@ public class Persona {
 	private String eta;
 	private char genere;
 	private StatoCivile stato;
+	
 
 	public Persona(String nome, String cognome, String eta, char genere, StatoCivile stato) {
 		this.nome = nome;
@@ -36,7 +37,7 @@ public class Persona {
 			e.printStackTrace();
 			this.eta = "Età non valida";
 		}
-
+		
 		this.genere = genere;
 		// this.sposato=sposato;
 	}
@@ -44,8 +45,28 @@ public class Persona {
 	public Persona(String nome, String cognome, String eta, char genere, boolean sposato) {
 		this.nome = nome;
 		this.cognome = cognome;
-		setSposato(sposato);
+		String statoOld = this.stato.getStato().toString();
 
+		if ((this.getSposato()) && (sposato) && (Character.toLowerCase(this.getGenere()) == 'm')) {
+
+			this.stato = StatoCivile.DIVORZIATO;
+			System.out.println(statoOld);
+			System.out.println(this.stato);
+		} else if ((this.getSposato() && sposato && Character.toLowerCase(this.getGenere()) == 'f'))
+
+			this.stato = StatoCivile.DIVORZIATA;
+
+		if (sposato && !(statoOld == "sposato" || statoOld == "sposata")
+				&& Character.toLowerCase(this.getGenere()) == 'm')
+			this.stato = StatoCivile.SPOSATO;
+		else if (sposato && !(statoOld == "sposata" || statoOld == "sposato")
+				&& Character.toLowerCase(this.getGenere()) == 'f')
+			this.stato = StatoCivile.SPOSATA;
+
+	
+
+	
+	
 
 		try {
 			EserciziEccezioni.validaEta(eta);
@@ -56,11 +77,10 @@ public class Persona {
 			e.printStackTrace();
 			this.eta = "Età non valida";
 		}
-
+		
 		this.genere = genere;
 		// this.sposato=sposato;
 	}
-
 	public Persona(String nome, String cognome) {
 		this.nome = nome;
 		this.cognome = cognome;
@@ -108,7 +128,6 @@ public class Persona {
 	public StatoCivile getStatoCivile() {
 		return stato;
 	}
-
 	public void setStatoCivile(String stato) {
 		this.stato.setStato(stato);
 	}
@@ -141,9 +160,13 @@ public class Persona {
 		String statoOld = this.stato.getStato().toString();
 
 		if ((this.getSposato()) && (sposato) && (Character.toLowerCase(this.getGenere()) == 'm')) {
+
 			this.stato = StatoCivile.DIVORZIATO;
+			System.out.println(statoOld);
+			System.out.println(this.stato);
 		} else if ((this.getSposato() && sposato && Character.toLowerCase(this.getGenere()) == 'f'))
-			this.stato = StatoCivile.DIVORZIATA;	
+
+			this.stato = StatoCivile.DIVORZIATA;
 
 		if (sposato && !(statoOld == "sposato" || statoOld == "sposata")
 				&& Character.toLowerCase(this.getGenere()) == 'm')
@@ -153,6 +176,8 @@ public class Persona {
 			this.stato = StatoCivile.SPOSATA;
 
 	}
+
+		
 
 	@Override
 	public String toString() {
