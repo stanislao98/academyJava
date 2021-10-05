@@ -79,6 +79,7 @@ public class Test {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+				break;
 			case 3:
 				try {
 					carta.prelievo(importo);
@@ -86,6 +87,7 @@ public class Test {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+				break;
 			}
 		}
 		
