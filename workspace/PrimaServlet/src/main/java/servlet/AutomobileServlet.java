@@ -92,11 +92,13 @@ public class AutomobileServlet extends HttpServlet {
 		
 	}
 
-	private void viewAutomobile(HttpServletRequest request, HttpServletResponse response) {
+	private void viewAutomobile(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		int auto_id = Integer.parseInt(request.getParameter("ticketId"));
 		Automobile auto = service.getAuto(auto_id);
-		return;
+		request.setAttribute("auto", auto);
+		request.getRequestDispatcher("/automobile/viewAutomobile.jsp").
+							forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

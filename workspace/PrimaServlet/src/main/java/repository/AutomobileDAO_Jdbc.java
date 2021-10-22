@@ -29,7 +29,7 @@ public class AutomobileDAO_Jdbc {
                 try {
                         conn = OpenDB();
  
-                        String sql = "SELECT * FROM auto WHERE potenza_kw > 70";
+                        String sql = "SELECT * FROM auto";
  
                         stmt = CreateStatement(conn, sql);
  
@@ -106,7 +106,7 @@ public class AutomobileDAO_Jdbc {
             try {
                     conn = OpenDB();
 
-                    String sql = "INSERT INTO auto VALUES (incrementoAuto.nextval, ?, ?, ?, ?, ?)";
+                    String sql = "INSERT INTO auto VALUES (incrementaAuto.nextval, ?, ?, ?, ?, ?)";
                    
                     String[] generatedColumns = { "ID" };
                    
@@ -125,7 +125,6 @@ public class AutomobileDAO_Jdbc {
                     // STEP 3: Execute a query
                     int row_cnt = stmt.executeUpdate();
                     conn.commit();
-
                     // STEP 4: GET ID
                     ResultSet generatedKeys = stmt.getGeneratedKeys();
                    
