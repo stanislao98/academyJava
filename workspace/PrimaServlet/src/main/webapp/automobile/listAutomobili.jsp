@@ -43,7 +43,7 @@ table, th, td {
 		</tr>
 
 		<%
-			if (automobili.size() != 0) {
+			if (automobili != null && automobili.size() != 0) {
 				for (Automobile auto : automobili) {
 					String idString = Integer.toString(auto.getId());
 		%>
