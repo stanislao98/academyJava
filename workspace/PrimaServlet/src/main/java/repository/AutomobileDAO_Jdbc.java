@@ -201,6 +201,53 @@ public class AutomobileDAO_Jdbc {
 				
 		       
 		}
+
+		public void update(Automobile auto) {
+		        Connection conn = null;
+		        PreparedStatement stmt = null;
+		       
+		        try {
+		                conn = OpenDB();
+
+		                String sql = "UPDATE auto SET elettrica = ?, targa = ?, marca = ?, modello = ?, potenza_kw = ? where id = ?";
+
+		                stmt = conn.prepareStatement(sql);
+
+		                // MAPPING tra le proprietà della entity class e le colonne (segnaposto: ?)
+		                // della entity table
+		             
+		                stmt.setInt(1, auto.getElettrica());
+		                stmt.setString(2, auto.getTarga());
+
+		                stmt.setString(3, auto.getMarca());
+		                stmt.setString(4, auto.getModello());
+
+		                stmt.setInt(5, auto.getKw());
+		                stmt.setInt(6, auto.getId());
+
+		             
+
+		                // STEP 3: Execute a query
+		                int row_cnt = stmt.executeUpdate();
+		                conn.commit();
+
+		                // STEP 4: Extract data from result set
+		                System.out.println("# di righe modificate = " + row_cnt);
+		        } catch (SQLException | ClassNotFoundException e) {
+		                try {
+		                        conn.rollback();
+		                } catch (SQLException e1) {
+		                        System.out.println(e.getMessage());
+		                }
+		                System.out.println(e.getMessage());
+		        } finally {
+		                try {
+		                        CloseDB(stmt, conn);
+		                } catch (SQLException e) {
+		                        System.out.println(e.getMessage());
+		                }
+		        } // end try
+		}
 	}
 		
 		

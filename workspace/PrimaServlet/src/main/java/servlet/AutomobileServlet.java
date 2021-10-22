@@ -39,16 +39,17 @@ public class AutomobileServlet extends HttpServlet {
 		switch(action) {
 		case "view":
 			viewAutomobile(request,response);
-
+			break;
 		case "create": 
 			showAutomobileCreateForm(request,response);
-
+			break;
 		case "update":
 			showAutomobileUpdateForm(request, response);
 			break;
 
 		case "delete":
 			deleteAutomobile(request, response);
+			break;
 		default:
 			listAutomobili(request,response);
 			break;
@@ -80,8 +81,13 @@ public class AutomobileServlet extends HttpServlet {
 		
 	}
 
-	private void showAutomobileUpdateForm(HttpServletRequest request, HttpServletResponse response) {
+	private void showAutomobileUpdateForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		int auto_id = Integer.parseInt(request.getParameter("ticketId"));
+		Automobile auto = service.getAuto(auto_id);
+		request.setAttribute("auto", auto);
+		request.getRequestDispatcher("/automobile/automobileForm.jsp").
+							forward(request, response);
 		
 	}
 
@@ -110,6 +116,7 @@ public class AutomobileServlet extends HttpServlet {
 
 		case "create": 
 			createAutomobile(request, response);
+			break;
 
 		case "update":
 			updateAutomobile(request, response);
@@ -121,12 +128,23 @@ public class AutomobileServlet extends HttpServlet {
 		}
 	}
 
-	private void updateAutomobile(HttpServletRequest request, HttpServletResponse response) {
+	private void updateAutomobile(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		// TODO Auto-generated method stub
-		
+		Automobile auto = new Automobile();
+		auto.setId(Integer.parseInt(request.getParameter("ticketId")));
+		auto.setTarga(request.getParameter("targa"));
+		auto.setModello(request.getParameter("marca"));
+		auto.setMarca(request.getParameter("modello"));
+		int el = (request.getParameter("elettrica").equals("SI") ? 1 : 0);
+		auto.setElettrica(el);
+		String kw = request.getParameter("kw");
+		auto.setKw(Integer.parseInt(kw));
+		service.updateAutomobile(auto);
+		response.sendRedirect(request.getContextPath());
+	
 	}
 
-	private void createAutomobile(HttpServletRequest request, HttpServletResponse response) {
+	private void createAutomobile(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		
 		Automobile auto = new Automobile();
 		auto.setTarga(request.getParameter("targa"));
@@ -137,7 +155,8 @@ public class AutomobileServlet extends HttpServlet {
 		String kw = request.getParameter("kw");
 		auto.setKw(Integer.parseInt(kw));
 		service.saveAutomobile(auto);
-		return;
+		response.sendRedirect(request.getContextPath());
+
 
 	}
 

@@ -39,7 +39,8 @@ table, th, td {
 			<th>Targa</th>
 			<th>Marca</th>
 			<th>Modello</th>
-			<th>Azione</th>
+			<th colspan=2>Azione</th>
+
 		</tr>
 
 		<%
@@ -55,10 +56,18 @@ table, th, td {
 				href="<c:url value="/">
 		    				<c:param name="action" value="view" />
 		    				<c:param name="ticketId" value="<%=idString%>" />
-		    			 </c:url>">DETTAGLI</a>
+		    			 </c:url>">
+		    			 <button>DETTAGLI</button></a>
+		    			 
+			
+			<a href="<c:url value="/">
+		    	<c:param name="action" value="update" />
+		    				<c:param name="ticketId" value="<%=idString%>" />
+		    			 </c:url>">
+			<button>AGGIORNA</button></a>
+		
 			</td>
 		</tr>
-
 		<%
 			}
 

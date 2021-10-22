@@ -19,5 +19,9 @@ public class AutomobileService {
 		return dao.getAutoById(auto_id);
 		
 	}
+	
+	public void updateAutomobile(Automobile auto) {
+		dao.update(auto);
+	}
 
 }
