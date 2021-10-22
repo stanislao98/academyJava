@@ -25,6 +25,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import it.capgemini.academy.giorno6.eserciziocarta.Movimento.TipoMovimento;
+import it.capgemini.academy.giorno6.eserciziocarta.comparatori.ComparatorData;
 import it.capgemini.academy.giorno6.eserciziocarta.comparatori.ComparatorImporto;
 import it.capgemini.academy.giorno6.eserciziocarta.exception.pagamentoMassimoException;
 import it.capgemini.academy.giorno6.eserciziocarta.exception.prelievoMassimoException;
@@ -61,26 +62,10 @@ public class Carta implements CartaPrepagata {
 	private static final int COMMISSIONERICARICA = 2;
 	private static final int COMMISSIONEPRELIEVO = 2;
 	private ArrayList<Movimento> listaMovimenti = new ArrayList<>();
+	// creare il logging nel main
 	private Logger logger;
 	
-	
-	public void setLogging() {
-		Logger logger = Logger.getLogger("logMovimento");
-		logger.setLevel(Level.ALL);
 
-		FileHandler fileHandler = null;
-
-		try {
-			fileHandler = new FileHandler("movimento.xml");
-		} catch (SecurityException | IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		logger.addHandler(fileHandler);
-		this.logger = logger;
-	}
-
-	
 	
 
 	public Carta(String numCarta, Persona intestatario, double saldo, Date ultimoMovimento) {
@@ -89,12 +74,11 @@ public class Carta implements CartaPrepagata {
 		this.intestatario = intestatario;
 		this.saldo = saldo;
 		this.ultimoMovimento = ultimoMovimento;
-		setLogging();
+		//setLogging();
 	}
 
 	
 	public void logging(Movimento movimento) {
-		
 		logger.info(movimento.toString());
 	}
 	
@@ -137,11 +121,17 @@ public class Carta implements CartaPrepagata {
 		this.listaMovimenti.sort(compImporto);
 		
 	}
+	
+	public void ordinaPerData() {
+		ComparatorData compData = new ComparatorData();
+		this.listaMovimenti.sort(compData);
+	}
 	public void ricarica(double quantita) {
 		this.saldo += quantita - COMMISSIONERICARICA;
 		this.ultimoMovimento = new Date(System.currentTimeMillis());
 		Movimento movimento = new Movimento(TipoMovimento.RICARICA, quantita, this.ultimoMovimento);
 		logging(movimento);
+		//Test.logger.fine("messaggio");
 		listaMovimenti.add(movimento);
 
 
@@ -156,7 +146,8 @@ public class Carta implements CartaPrepagata {
 		this.saldo -= (quantita + COMMISSIONEPRELIEVO);
 		this.ultimoMovimento = new Date(System.currentTimeMillis());
 		Movimento movimento = new Movimento(TipoMovimento.PRELIEVO, quantita, this.ultimoMovimento);
-		logging(movimento);
+		logging(movimento)
+		;
 		listaMovimenti.add(movimento);
 
 
@@ -174,6 +165,9 @@ public class Carta implements CartaPrepagata {
 
 	}
 
+	public void setLogger(Logger logger) {
+		this.logger = logger;
+	}
 	public String getNumCarta() {
 		return numCarta;
 	}

@@ -1,8 +1,12 @@
 package it.capgemini.academy.giorno6.eserciziocarta;
 
 import java.awt.Image;
+import java.io.IOException;
 import java.util.Date;
 import java.util.Scanner;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import it.capgemini.academy.giorno6.eserciziocarta.Movimento.TipoMovimento;
 import it.capgemini.academy.giorno6.eserciziocarta.exception.pagamentoMassimoException;
@@ -36,7 +40,22 @@ public class Test {
 	 *  
 	 *  testare le funzionalità
 	 */
-	
+	public static Logger logger =  Logger.getLogger("logMovimento");
+
+	public Test () {
+		logger.setLevel(Level.ALL);
+
+		FileHandler fileHandler = null;
+		try {
+			fileHandler = new FileHandler("movimento.xml");
+		} catch (SecurityException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		logger.addHandler(fileHandler);
+
+	}
+
 	public static void main(String[] args) {
 		
 		//i try si potevano inserire qui
@@ -45,35 +64,45 @@ public class Test {
 		
 		Carta carta = new Carta("1234", p, 1516.4, d);
 	
-		//System.out.println(carta.getSaldo());
-		//System.out.println(carta.getUltimoMovimento());
+	
 		CartaGold cartaGold = new CartaGold("1234", p, 1900, 2, d);
-		//System.out.println(d);
-		//System.out.println(CartaGold.pre);
-		//carta.stampaMovimenti();
-		//carta.downloadMovimenti();
 		
+		//Logger logger = Logger.getLogger("logMovimento");
+
+		FileHandler fileHandler = null;
+
+		try {
+			fileHandler = new FileHandler("movimento.xml");
+		} catch (SecurityException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		logger.addHandler(fileHandler);
+		
+		carta.setLogger(logger);
 		Scanner scanner = new Scanner(System.in);
 
 		int scelta = 100;
 	
 		while(scelta !=0) {
 			System.out.println("-----SCEGLIERE IL TIPO DI MOVIMENTO-----");
-			System.out.println("1. Ricarica\n2. Pagamento\n3. Prelievo\n0. Per uscire");
+			System.out.println("1. Ricarica\n2. Pagamento\n3. Prelievo\n4. Download movimenti\n5. Stampa Movimenti\n0. Per uscire");
 			scelta = scanner.nextInt();
 			if(scelta==0)
 				break;
-			System.out.println("Inserire importo");
-
-			double importo = scanner.nextDouble();
+			double importo ;
 			switch (scelta) {
 				
 			case 1:
+				System.out.println("Inserire importo");
+				importo = scanner.nextDouble();
 				carta.ricarica(importo);
 				System.out.println(carta.getSaldo());
 				break;
 			case 2:
 				try {
+					System.out.println("Inserire importo");
+					importo = scanner.nextDouble();
 					carta.pagamento(importo);
 				} catch (pagamentoMassimoException e) {
 					// TODO Auto-generated catch block
@@ -82,11 +111,19 @@ public class Test {
 				break;
 			case 3:
 				try {
+					System.out.println("Inserire importo");
+					importo = scanner.nextDouble();
 					carta.prelievo(importo);
 				} catch (prelievoMassimoException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+				break;
+			case 4:
+				carta.downloadMovimenti();
+				break;
+			case 5:
+				carta.stampaMovimenti();
 				break;
 			}
 		}

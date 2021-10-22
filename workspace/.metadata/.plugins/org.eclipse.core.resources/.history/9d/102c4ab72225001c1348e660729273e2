@@ -1,9 +1,0 @@
-package it.capgemini.academy.giorno6.eserciziocarta;
-
-import it.capgemini.academy.giorno6.eserciziocarta.exception.prelievoMassimo;
-
-public interface CartaPrepagata {
-	public void ricarica(double quantita) ;
-	public void prelievo(double quantita) throws prelievoMassimo;
-	public void pagamento(double quantita);
-}

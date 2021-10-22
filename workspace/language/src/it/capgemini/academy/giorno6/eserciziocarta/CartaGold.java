@@ -11,6 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import it.capgemini.academy.giorno6.eserciziocarta.Movimento.TipoMovimento;
+import it.capgemini.academy.giorno6.eserciziocarta.comparatori.ComparatorData;
 import it.capgemini.academy.giorno6.eserciziocarta.comparatori.ComparatorImporto;
 import it.capgemini.academy.giorno6.eserciziocarta.exception.pagamentoMassimoException;
 import it.capgemini.academy.giorno6.eserciziocarta.exception.prelievoMassimoException;
@@ -50,6 +51,7 @@ public class CartaGold implements CartaPrepagata {
 	private static final int COMMISSIONERICARICA = 0;
 	private static final int COMMISSIONEPRELIEVO = 1;
 	private ArrayList<Movimento> listaMovimenti = new ArrayList<>();
+	private Logger logger;
 
 
 	public CartaGold(String numCarta, Persona intestatario, double saldo, int punti, Date ultimoMovimento) {
@@ -62,18 +64,6 @@ public class CartaGold implements CartaPrepagata {
 	}
 	
 	public void logging(Movimento movimento) {
-		Logger logger = Logger.getLogger("myLogger");
-		logger.setLevel(Level.ALL);
-
-		FileHandler fileHandler = null;
-
-		try {
-			fileHandler = new FileHandler("logFile.xml");
-		} catch (SecurityException | IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
 		logger.info(movimento.toString());
 	}
 	
@@ -151,6 +141,10 @@ public class CartaGold implements CartaPrepagata {
 		listaMovimenti.sort(compImporto);
 		
 	}
+	public void ordinaPerData() {
+		ComparatorData compData = new ComparatorData();
+		this.listaMovimenti.sort(compData);
+	}
 
 	public void puntiGold(double quantita) {
 		if (quantita >= 10)
@@ -161,6 +155,10 @@ public class CartaGold implements CartaPrepagata {
 		return punti;
 	}
 
+	public void setLogger(Logger logger) {
+		this.logger = logger;
+	}
+	
 	public void setPunti(int punti) {
 		this.punti = punti;
 	}

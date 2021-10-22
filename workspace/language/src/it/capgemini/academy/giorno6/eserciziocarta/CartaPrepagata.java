@@ -36,4 +36,5 @@ public interface CartaPrepagata {
 	public void stampaMovimenti();
 	public void downloadMovimenti();
 	public void ordinaPerImporto();
+	public void ordinaPerData();
 }

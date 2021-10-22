@@ -2,36 +2,24 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2021-10-05T18:04:48</date>
-  <millis>1633449888144</millis>
+  <date>2021-10-06T08:32:47</date>
+  <millis>1633501967110</millis>
   <sequence>0</sequence>
   <logger>logMovimento</logger>
   <level>INFO</level>
   <class>it.capgemini.academy.giorno6.eserciziocarta.Carta</class>
   <method>logging</method>
   <thread>1</thread>
-  <message>Movimento [tipo=RICARICA, importo=300.0, data=Tue Oct 05 18:04:48 CEST 2021]</message>
+  <message>Movimento [tipo=PAGAMENTO, importo=12.0, data=Wed Oct 06 08:32:47 CEST 2021]</message>
 </record>
 <record>
-  <date>2021-10-05T18:04:50</date>
-  <millis>1633449890720</millis>
+  <date>2021-10-06T08:32:52</date>
+  <millis>1633501972147</millis>
   <sequence>1</sequence>
   <logger>logMovimento</logger>
   <level>INFO</level>
   <class>it.capgemini.academy.giorno6.eserciziocarta.Carta</class>
   <method>logging</method>
   <thread>1</thread>
-  <message>Movimento [tipo=PAGAMENTO, importo=10.0, data=Tue Oct 05 18:04:50 CEST 2021]</message>
+  <message>Movimento [tipo=RICARICA, importo=122.0, data=Wed Oct 06 08:32:52 CEST 2021]</message>
 </record>
-<record>
-  <date>2021-10-05T18:04:53</date>
-  <millis>1633449893712</millis>
-  <sequence>2</sequence>
-  <logger>logMovimento</logger>
-  <level>INFO</level>
-  <class>it.capgemini.academy.giorno6.eserciziocarta.Carta</class>
-  <method>logging</method>
-  <thread>1</thread>
-  <message>Movimento [tipo=PRELIEVO, importo=2.0, data=Tue Oct 05 18:04:53 CEST 2021]</message>
-</record>
-</log>

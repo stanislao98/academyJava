@@ -46,7 +46,6 @@ public class Persona implements Comparable<Persona> {
 		this.cognome = cognome;
 		setSposato(sposato);
 
-
 		try {
 			EserciziEccezioni.validaEta(eta);
 			this.eta = eta;
@@ -143,7 +142,7 @@ public class Persona implements Comparable<Persona> {
 		if ((this.getSposato()) && (sposato) && (Character.toLowerCase(this.getGenere()) == 'm')) {
 			this.stato = StatoCivile.DIVORZIATO;
 		} else if ((this.getSposato() && sposato && Character.toLowerCase(this.getGenere()) == 'f'))
-			this.stato = StatoCivile.DIVORZIATA;	
+			this.stato = StatoCivile.DIVORZIATA;
 
 		if (sposato && !(statoOld == "sposato" || statoOld == "sposata")
 				&& Character.toLowerCase(this.getGenere()) == 'm')
@@ -161,50 +160,14 @@ public class Persona implements Comparable<Persona> {
 	}
 
 	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((cognome == null) ? 0 : cognome.hashCode());
-		//result = prime * result + ((eta == 0) ? 0 : eta.hashCode());
-		result = prime * result + genere;
-		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
-		return result;
+	public int compareTo(Persona o) {
+		// TODO Auto-generated method stub
+		if (o.eta > eta) {
+			return 1;
+		} else if (o.eta < eta) {
+			return -1;
+		} else
+			return 0;
 	}
 
-//	@Override
-//	public boolean equals(Object obj) {
-//		if (this == obj)
-//			return true;
-//		if (obj == null)
-//			return false;
-//		if (getClass() != obj.getClass())
-//			return false;
-//		Persona other = (Persona) obj;
-//		if (cognome == null) {
-//			if (other.cognome != null)
-//				return false;
-//		} else if (!cognome.equals(other.cognome))
-//			return false;
-//		if (eta == 0) {
-//			if (other.eta != null)
-//				return false;
-//		} else if (!eta.equals(other.eta))
-//			return false;
-//		if (genere != other.genere)
-//			return false;
-//		if (nome == null) {
-//			if (other.nome != null)
-//				return false;
-//		} else if (!nome.equals(other.nome))
-//			return false;
-//		return true;
-//	}
-	@Override
-	public int compareTo(Persona o) {
-		if(this.nome.compareTo(o.getCognome()) < 0)
-			return -1;
-		else if(this.cognome.compareTo(o.getCognome()) > 0)
-			return 1;
-		else return 0;
-	}
 }

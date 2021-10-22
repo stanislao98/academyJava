@@ -1,9 +1,0 @@
-package it.capgemini.academy.giorno6.classiinterne;
-
-public class Test {
-	public static void main(String[] args) {
-		
-		System.out.println(Persona.StatoCivile.CELIBE);
-	}
-
-}

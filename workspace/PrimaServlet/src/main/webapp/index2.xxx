@@ -1,0 +1,38 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+
+
+<%String[] fruits = request.getParameterValues("fruit");%>
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hello User Application</title>
+</head>
+<body>
+	<h2>Your Selections</h2>
+	<ul>
+
+	<%
+		if (fruits == null) { %>
+		
+			 <p>You did not select any fruits</p>
+		
+		<%} else { %>
+			<ul>
+
+		<% }
+		for (String fruit : fruits) {%>
+			<li><%= fruit %></li>
+		<% }%>
+	
+
+	</ul>
+
+
+
+
+
+
+</body>
+</html>

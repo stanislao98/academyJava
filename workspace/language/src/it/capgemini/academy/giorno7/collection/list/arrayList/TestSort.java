@@ -36,7 +36,7 @@ public class TestSort {
 		}
 		
 		//ordinaNome(list);
-		Collections.sort(list);
+		//Collections.sort(list);
 		// sort(list) ordina in base all'ordinamento naturale della classe	
 		// ovvero quello definito dal metodo compareTo() dell'interfaccia comparable
 		
@@ -51,15 +51,11 @@ public class TestSort {
 			@Override
 			public int compare(Persona o1, Persona o2) {
 				// TODO Auto-generated method stub
-				if(o1.getNome().compareToIgnoreCase(o2.getNome()) < 0)
-						return -1;
-				else if(o1.getNome().compareToIgnoreCase(o2.getNome()) < 0)
-					return 1;
-				else 
-					return 0;
+				return o1.getNome().compareToIgnoreCase(o2.getNome());
+				// notare che non abbiamo gestito una potenziale nullPointerException
 			}
 			
-		};
+		}; //classe anonima che implementa comparator
 		
 		
 	}
